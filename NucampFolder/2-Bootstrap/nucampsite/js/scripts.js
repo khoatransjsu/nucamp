@@ -1,4 +1,3 @@
-//Carousel
 $(function() {
     $(".carousel").carousel( { interval: 2000 } );
     $("#carouselButton").click(function(){
@@ -14,14 +13,12 @@ $(function() {
     });
 });
 
-// Reserve Button
 $(function () {
     $("#reserveButton").click(function(){
         $('#reserveModal').modal('show');
     });
 });
 
-// Login Button
 $(function () {
     $("#loginButton").click(function(){
         $('#loginModal').modal('show');
