@@ -9,18 +9,20 @@ class Student {
 class Bootcamp{
     constructor(name, level, students=[]) {
         this.name = name;
-        this.email = email;
+        this.level = level;
         this.students = students;
     }
     registerStudent(student){
-        let exist = this.students.filter(s => s.email === student.email);
-        if(!exist){
-            console.log(`Registering ${student.email} to the bootcamp Web Dev Fundamentals.`);
+
+        let exist = this.students.filter(o => o.email === student.email)[0];
+        if(exist){
+            console.log("This email has already been used");
         }
         else{
-            console.log(`This email has already been used.`);
+            this.students.push(student);
+            console.log(`Registering ${student.email} to the bootcamp Web Dev Fundamentals.`);
         }
-
+    
         return this.students;
     }
 }
