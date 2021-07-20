@@ -1,24 +1,27 @@
 class Student {
-    constructor(name, email, community) {
+    
+    constructor (name, email, community) {
         this.name = name;
         this.email = email;
         this.community = community;
     }
 }
 
-class Bootcamp{
-    constructor(name, level, students=[]) {
+class Bootcamp {
+    
+    constructor (name, level, students=[]){
         this.name = name;
         this.level = level;
         this.students = students;
     }
-    registerStudent(student){
+
+    registerStudent (student){
 
         let exist = this.students.filter(o => o.email === student.email)[0];
         if(exist){
             console.log("This email has already been used");
         }
-        else{
+        else {           
             this.students.push(student);
             console.log(`Registering ${student.email} to the bootcamp Web Dev Fundamentals.`);
         }
