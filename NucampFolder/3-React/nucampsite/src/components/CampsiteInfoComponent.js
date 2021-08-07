@@ -2,7 +2,7 @@ import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem } from 'r
 import { Link } from 'react-router-dom';
 import {Button, Modal, ModalHeader, ModalBody, Label} from 'reactstrap';
 import React, { Component } from 'react';
-import {Control, LocalForm } from 'react-redux-form';
+import {Control, LocalForm, Errors } from 'react-redux-form';
 
 const maxLength = len => val => !val || (val.length <= len);
 const minLength = len => val => val && (val.length >= len);
@@ -92,14 +92,14 @@ class CommentForm extends Component {
     render() {
         return (
             <>
-                <Button outline onClick={this.toggleModal}> <i className="fa fa-pencil fa-lg" />
+                <Button outline onClick={this.toggleModal}> <i className="fa fa-pencil fa-lg mr-1" />
                     Submit Comment
                 </Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                     <ModalBody>
                         <LocalForm onSubmit={values => this.handleSubmit(values)}>
-                            <div className="formGroup">
+                            <div className="form-group">
                                 <Label htmlFor="rating">Rating</Label>
                                 <Control.select model=".rating" name="rating" id="rating" className="form-control">
                                     <option>1</option>
@@ -109,15 +109,15 @@ class CommentForm extends Component {
                                     <option>5</option>
                                 </Control.select>
                             </div>
-                            <div className="formGroup">
+                            <div className="form-group">
                                 <Label htmlFor="author">Your Name</Label>
                                 <Control.text model=".author" name="author" id="author" placeholder="Your Name" className="form-control" />                                                            
                             </div>
-                            <div className="formGroup">
+                            <div className="form-group">
                                 <Label htmlFor="text">Comment</Label>
                                 <Control.textarea model=".text" id="text" name="text" className="form-control" rows="6"/>
                             </div>
-                            <div className="formGroup">
+                            <div className="form-group">
                                 <Button type="submit" color = "primary">
                                     Submit
                                 </Button>
